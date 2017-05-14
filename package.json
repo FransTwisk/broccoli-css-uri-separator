@@ -1,0 +1,26 @@
+{
+  "name": "broccoli-css-seperator",
+  "description": "seperate css data (uri's) using postcss-separator for broccoli",
+  "version": "1.0.0",
+  "author": "Frans Twisk <frans@franstwisk.nl>",
+  "main": "index.js",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/franstwisk/broccoli-css-seperator.git"
+  },
+  "keywords": [
+    "broccoli-plugin",
+		"postcss",
+    "css",
+    "javascript"
+  ],
+  "dependencies": {
+    "broccoli-caching-writer": "^0.4.2",
+    "broccoli-kitchen-sink-helpers": "^0.2.0",
+    "mkdirp": "^0.3.5",
+    "postcss-separator": "^1.0.0",
+    "promise-map-series": "^0.2.0",
+    "walk-sync": "^0.1.0"
+  }
+}
