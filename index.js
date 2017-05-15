@@ -39,12 +39,13 @@ Separator.prototype.build = function(srcDir, destDir) {
 }
 
 function Separator(inputTree, options={}) {
-	if (!(this instanceof Separator)) {
-		return new Writer([inputTree], options);
-	}
-
-	this.inputTree = inputTree;
-	this.options = options || {};
+	return new Writer.call(this, [inputTree], options);
+	// if (!(this instanceof Separator)) {
+	// 	return new Separator(inputTree, options);
+	// }
+	//
+	// this.inputTree = inputTree;
+	// this.options = options || {};
 };
 
 module.exports = Separator;
