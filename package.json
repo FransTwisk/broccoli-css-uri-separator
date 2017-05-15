@@ -1,7 +1,7 @@
 {
   "name": "broccoli-css-separator",
   "description": "separate css data (uri's) using postcss-separator for broccoli",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "author": "Frans Twisk <frans@franstwisk.nl>",
   "main": "index.js",
   "license": "MIT",
