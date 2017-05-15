@@ -38,13 +38,14 @@ Separator.prototype.updateCache = function(srcDir, destDir) {
 }
 
 function Separator(inputTree, options={}) {
-	return new Writer(inputTree, options);
-	// if (!(this instanceof Separator)) {
-	// 	return new Separator(inputTree, options);
-	// }
-	//
-	// this.inputTree = inputTree;
-	// this.options = options || {};
+	if (!(this instanceof Separator)) {
+		return new Separator(inputTree, options);
+	}
+
+	this.inputTree = inputTree;
+	this.options = options || {};
+	
+	return new Writer(this, inputTree, options);
 };
 
 module.exports = Separator;
