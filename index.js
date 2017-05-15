@@ -38,7 +38,7 @@ Separator.prototype.updateCache = function(srcDir, destDir) {
 }
 
 function Separator(inputTree, options={}) {
-	Writer.call(this, inputTree, options);
+	new Writer.call(this, inputTree, options);
 	// if (!(this instanceof Separator)) {
 	// 	return new Separator(inputTree, options);
 	// }
