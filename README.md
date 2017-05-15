@@ -1,25 +1,25 @@
 # Split Your CSS data With Broccoli
 
 Pass your tree to broccoli-css-separator and it will split all data uri's
- (eg. inline background images in foo.css) into a separate file (foo-data.css) using [postcss-separator](https://github.com/Sebastian-Fitzner/postcss-separator).
+ (eg. inline background images in foo.css) into a separate file (foo-uris.css) using [postcss-separator](https://github.com/Sebastian-Fitzner/postcss-separator).
 
 ```js
-var separator = require('broccoli-css-separator');
-var funnel = require('broccoli-funnel');
-var mergeTrees = require('broccoli-merge-trees');
+const CSSURISeparator = require('broccoli-css-uri-separator');
+const Funnel = require('broccoli-funnel');
+const MergeTrees = require('broccoli-merge-trees');
 
-var appTree = app.toTree();
+let appTree = app.toTree();
 
-var cssTree = funnel(appTree, {
+const cssTree = new Funnel(appTree, {
 	include: [ "**/*.css", "**/*.html" ]
 });
 
-appTree = funnel(appTree, {
+appTree = new Funnel(appTree, {
 	exclude: [ "**/*.css", "**/*.html" ]
 });
 
-var splitTree = separator(cssTree);
-appTree = mergeTrees([appTree, splitTree]);
+const splitTree = new CSSURISeparator(cssTree);
+appTree = new MergeTrees([appTree, splitTree]);
 return appTree;
 ```
 

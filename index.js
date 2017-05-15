@@ -24,9 +24,9 @@ Separator.prototype.build = function() {
 
 			if (data.css) { // write files overwriting originals + data (if there is any data)
 				const destPath = path.join(destDir, relativePath);
-				const dataDestPath = destPath.replace(/\.css$/, '-data.css');
+				const dataDestPath = destPath.replace(/\.css$/, '-uris.css');
 
-				fs.writeFile(destPath, original.css, { encoding: 'utf8' });
+				fs.writeFileSync(destPath, original.css, { encoding: 'utf8' });
 				fs.writeFileSync(dataDestPath, data.css, { encoding: 'utf8' });
 			}
 		}
@@ -38,7 +38,7 @@ function Separator(inputTree, options={}) {
 		return Writer.call(this, [inputTree], options);
 	}
 
-	return Writer.call(this, inputTree, options);	
+	return Writer.call(this, inputTree, options);
 };
 
 module.exports = Separator;
