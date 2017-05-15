@@ -34,7 +34,11 @@ Separator.prototype.build = function() {
 }
 
 function Separator(inputTree, options={}) {
-	return Writer.call(this, [inputTree], options);
+	if (!Array.isArray(inputTree)) {
+		return Writer.call(this, [inputTree], options);
+	}
+
+	return Writer.call(this, inputTree, options);	
 };
 
 module.exports = Separator;
