@@ -11,6 +11,7 @@ Separator.prototype = Object.create(Writer.prototype);
 Separator.prototype.constructor = Separator;
 Separator.prototype.updateCache = function(srcDir, destDir) {
 	// var self = this;
+  console.log('updateCache is called');
 	const paths = walkSync(srcDir);
 
 	return mapSeries(paths, (relativePath) => {
@@ -38,14 +39,13 @@ Separator.prototype.updateCache = function(srcDir, destDir) {
 }
 
 function Separator(inputTree, options={}) {
-	if (!(this instanceof Separator)) {
-		return new Separator(inputTree, options);
-	}
-
-	this.inputTree = inputTree;
-	this.options = options || {};
-	
-	return new Writer(this, inputTree, options);
+	Writer.call(this, inputTree, options);
+	// if (!(this instanceof Separator)) {
+	// 	return new Separator(inputTree, options);
+	// }
+	//
+	// this.inputTree = inputTree;
+	// this.options = options || {};
 };
 
 module.exports = Separator;
