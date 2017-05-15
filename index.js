@@ -10,15 +10,9 @@ const separator = require('postcss-separator');
 Separator.prototype = Object.create(Writer.prototype);
 Separator.prototype.constructor = Separator;
 Separator.prototype.build = function() {
-	// var self = this;
 	const srcDir = this.inputPaths[0];
 	const destDir = this.outputPath;
-	console.log('srcDir is:');
-	console.log(srcDir);
-	console.log('destDir is:');
-	console.log(destDir);
 
-  console.log('build is called');
 	const paths = walkSync(srcDir);
 
 	return mapSeries(paths, (relativePath) => {
@@ -35,11 +29,11 @@ Separator.prototype.build = function() {
 				const data = separator.separate(rawcss, { dataFile: true });
 				const original = separator.separate(rawcss, { dataFile: false });
 
-				if (data.css) { // write files overwriting originals + data (if there is any data)
-					fs.writeFileSync(destPath, original.css, { encoding: 'utf8' });
-					const dataDestPath = destPath.replace(/\.css$/, '-data.css');
-					fs.writeFileSync(dataDestPath, data.css, { encoding: 'utf8' });
-				}
+				// if (data.css) { // write files overwriting originals + data (if there is any data)
+				fs.writeFileSync(destPath, original.css, { encoding: 'utf8' });
+				const dataDestPath = destPath.replace(/\.css$/, '-data.css');
+				fs.writeFileSync(dataDestPath, data.css, { encoding: 'utf8' });
+				// }
 			}
 		}
 	});
@@ -47,12 +41,6 @@ Separator.prototype.build = function() {
 
 function Separator(inputTree, options={}) {
 	return Writer.call(this, [inputTree], options);
-	// if (!(this instanceof Separator)) {
-	// 	return new Separator(inputTree, options);
-	// }
-	//
-	// this.inputTree = inputTree;
-	// this.options = options || {};
 };
 
 module.exports = Separator;
