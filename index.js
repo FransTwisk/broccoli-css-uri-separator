@@ -2,9 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const mkdirp = require('mkdirp');
 const Writer = require('broccoli-caching-writer');
-// const helpers = require('broccoli-kitchen-sink-helpers');
 const walkSync = require('walk-sync'); // maybe remove
-// const mapSeries = require('promise-map-series'); // remove in future
 const separator = require('postcss-separator');
 
 Separator.prototype = Object.create(Writer.prototype);
