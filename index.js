@@ -38,9 +38,9 @@ Separator.prototype.updateCache = function(srcDir, destDir) {
 				var original = separator.separate(rawcss, {dataFile: false});
 
 				// write files overwriting originals + data (if there is any data)
-				var dataDestPath = destPath.replace(/\.css$/, '-data' + '.css');
-				fs.writeFileSync(destPath, original.css, { encoding: 'utf8'});
 				if(data.css) {
+					fs.writeFileSync(destPath, original.css, { encoding: 'utf8'});
+					var dataDestPath = destPath.replace(/\.css$/, '-data' + '.css');
 					fs.writeFileSync(dataDestPath, data.css, { encoding: 'utf8'});
 				}
 			}
