@@ -1,7 +1,9 @@
-# Split Your CSS data With Broccoli
+# Split Your CSS Data URIs With Broccoli
 
 Pass your tree to broccoli-css-separator and it will split all data uri's
  (eg. inline background images in foo.css) into a separate file (foo-uris.css) using [postcss-separator](https://github.com/Sebastian-Fitzner/postcss-separator).
+
+```application-uris.css``` contains only your data-uris. This file loads asynchronously and only when it is needed. We had an initial load savings of 133.32 KB from our production css thanks to this plugin. The most obvious use-case of this plugin is custom svg icons.
 
 ```js
 const CSSURISeparator = require('broccoli-css-uri-separator');
@@ -29,4 +31,4 @@ Be sure to select CSS files *only* in your input tree. `broccoli-caching-writer`
 Code inspired by [broccoli-csssplit](https://github.com/aboekhoff/broccoli-csssplit)
 
 ## License
-Copyright (c) 2017 Frans Twisk. Licensed under the MIT license.
+Copyright (c) 2017 Frans Twisk & Izel Nakri, GUTS Tickets. Licensed under the MIT License.
