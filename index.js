@@ -25,8 +25,8 @@ Separator.prototype.build = function(srcDir, destDir) {
 				const destPath = path.join(destDir, relativePath);
 
 				const rawcss = fs.readFileSync(srcPath, { encoding: 'utf8' });
-				const data = separator.separate(rawcss, { dataFile: true });
-				const original = separator.separate(rawcss, { dataFile: false });
+				const data = new separator.separate(rawcss, { dataFile: true });
+				const original = new separator.separate(rawcss, { dataFile: false });
 
 				if (data.css) { // write files overwriting originals + data (if there is any data)
 					fs.writeFileSync(destPath, original.css, { encoding: 'utf8' });
