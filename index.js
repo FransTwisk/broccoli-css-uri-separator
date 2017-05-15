@@ -9,8 +9,15 @@ const separator = require('postcss-separator');
 
 Separator.prototype = Object.create(Writer.prototype);
 Separator.prototype.constructor = Separator;
-Separator.prototype.build = function(srcDir, destDir) {
+Separator.prototype.build = function() {
 	// var self = this;
+	const srcDir = this.inputPaths;
+	const destDir = this.outputPath;
+	console.log('srcDir is:');
+	console.log(srcDir);
+	console.log('destDir is:');
+	console.log(destDir);
+
   console.log('build is called');
 	const paths = walkSync(srcDir);
 
