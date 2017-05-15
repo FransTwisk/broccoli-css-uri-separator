@@ -11,17 +11,12 @@ const Funnel = require('broccoli-funnel');
 const MergeTrees = require('broccoli-merge-trees');
 
 let appTree = app.toTree();
+appTree = new Funnel(appTree, { exclude: ['**/*.css', '**/*.html'] });
 
-const cssTree = new Funnel(appTree, {
-	include: [ "**/*.css", "**/*.html" ]
-});
-
-appTree = new Funnel(appTree, {
-	exclude: [ "**/*.css", "**/*.html" ]
-});
-
+const cssTree = new Funnel(appTree, { include: ['**/*.css', '**/*.html'] });
 const splitTree = new CSSURISeparator(cssTree);
 appTree = new MergeTrees([appTree, splitTree]);
+
 return appTree;
 ```
 
