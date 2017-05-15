@@ -16,11 +16,11 @@
     "javascript"
   ],
   "dependencies": {
-    "broccoli-caching-writer": "^0.4.2",
-    "broccoli-kitchen-sink-helpers": "^0.2.0",
-    "mkdirp": "^0.3.5",
+    "broccoli-caching-writer": "^3.0.3",
+    "broccoli-kitchen-sink-helpers": "^0.3.1",
+    "mkdirp": "^0.5.1",
     "postcss-separator": "^1.0.0",
-    "promise-map-series": "^0.2.0",
-    "walk-sync": "^0.1.0"
+    "promise-map-series": "^0.2.3",
+    "walk-sync": "^0.3.1"
   }
 }
