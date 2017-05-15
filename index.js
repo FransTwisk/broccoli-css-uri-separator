@@ -39,7 +39,7 @@ Separator.prototype.build = function(srcDir, destDir) {
 }
 
 function Separator(inputTree, options={}) {
-	return new Writer(inputTree, options);
+	return new Writer([inputTree], options);
 	// if (!(this instanceof Separator)) {
 	// 	return new Separator(inputTree, options);
 	// }
