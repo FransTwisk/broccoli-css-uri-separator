@@ -9,9 +9,9 @@ const separator = require('postcss-separator');
 
 Separator.prototype = Object.create(Writer.prototype);
 Separator.prototype.constructor = Separator;
-Separator.prototype.updateCache = function(srcDir, destDir) {
+Separator.prototype.build = function(srcDir, destDir) {
 	// var self = this;
-  console.log('updateCache is called');
+  console.log('build is called');
 	const paths = walkSync(srcDir);
 
 	return mapSeries(paths, (relativePath) => {
