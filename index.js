@@ -11,7 +11,7 @@ Separator.prototype = Object.create(Writer.prototype);
 Separator.prototype.constructor = Separator;
 Separator.prototype.build = function() {
 	// var self = this;
-	const srcDir = this.inputPaths;
+	const srcDir = this.inputPaths[0];
 	const destDir = this.outputPath;
 	console.log('srcDir is:');
 	console.log(srcDir);
