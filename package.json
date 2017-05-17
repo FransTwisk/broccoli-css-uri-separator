@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/franstwisk/broccoli-css-uri-seperator.git"
+    "url": "https://github.com/franstwisk/broccoli-css-uri-separator.git"
   },
   "keywords": [
     "broccoli-plugin",
